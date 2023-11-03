@@ -60,18 +60,6 @@ client.on('ready', (c) => {
 //   // await getLyrics(songName, songArtist);
 // });
 
-async function getLyrics(songName, songArtist) {
-  const songNameFormatted = encodeURIComponent(songName);
-  const songArtistFormatted = encodeURIComponent(songArtist);
-  console.log(songNameFormatted, songArtistFormatted);
-  const res = await fetch(
-    `https://www.stands4.com/services/v2/lyrics.php?uid=12159&tokenid=QLnBK9dmyACndLLO&term=${songNameFormatted}&artist=${songArtistFormatted}&format=json`
-  );
-  const data = await res.json();
-  const urlToScrape = data.result[0]['song-link'];
-  return;
-}
-
 client.on(Events.InteractionCreate, async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
